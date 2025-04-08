@@ -9,10 +9,10 @@ export const NAVIGATION = [
         name:"Giới thiệu",        
     },
     {
-        name: 'Tin tức',
+        name: 'Tuyển sinh',
     },
     {
-        name: 'Tuyển sinh',
+        name: 'Tin tức',
     },
     {
         name: 'Đào tạo',
