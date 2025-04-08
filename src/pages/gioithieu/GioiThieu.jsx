@@ -143,7 +143,7 @@ export default function GioiThieu() {
                         boxShadow: 6
                         }}>
                         <img 
-                            src="/school.jpg" 
+                            src="/edit.jpg"
                             alt="Campus" 
                             style={{ 
                             objectFit: 'contain',                
@@ -181,7 +181,7 @@ export default function GioiThieu() {
                         boxShadow: 6
                         }}>
                         <img 
-                            src="/school.jpg" 
+                            src="/edit.jpg"
                             alt="Campus" 
                             style={{ 
                             objectFit: 'contain',                
