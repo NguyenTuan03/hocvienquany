@@ -5,7 +5,7 @@ import { EnglishIcon, VietnamIcon } from './../../components/icon/Icon';
 import SearchIcon from '@mui/icons-material/Search';
 import { useNavigate } from 'react-router';
 export default function Header() {  
-  const [language, setLanguage] = useState('English');
+  const [language, setLanguage] = useState('Vietnamese');
   const nav = useNavigate()
   const handleChange = (event) => {
     setLanguage(event.target.value);
