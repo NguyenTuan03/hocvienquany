@@ -1,4 +1,4 @@
-import { Box, Button, Container, Grid, Stack, Typography, Paper, Divider, Chip, List, ListItem, ListItemIcon, ListItemText } from '@mui/material';
+import { Box, Button, Container, Grid, Stack, Typography, Paper, Divider, Chip, List, ListItem, ListItemIcon, ListItemText, TextField, Radio } from '@mui/material';
 import React, { useState } from 'react';
 import { Carousel } from 'react-responsive-carousel';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
@@ -10,7 +10,23 @@ import ScienceIcon from '@mui/icons-material/Science';
 import LocalHospitalIcon from '@mui/icons-material/LocalHospital';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
-
+const REASONS = [
+  {
+    title: "Chất lượng đào tạo",
+    description: "Học viện Quân y là nơi đào tạo những bác sĩ quân y hàng đầu, với chương trình giảng dạy chất lượng cao và đội ngũ giảng viên giàu kinh nghiệm.",
+    icon: <SchoolIcon sx={{ color: '#21593b', fontSize: 40 }} />
+  },
+  {
+    title: "Cơ hội nghề nghiệp",
+    description: "Sinh viên tốt nghiệp tại Cao đăng hậu cần có cơ hội làm việc tại các cơ quan y tế quân đội, bệnh viện, và các tổ chức y tế quốc tế.",
+    icon: <SchoolIcon sx={{ color: '#21593b', fontSize: 40 }} />
+  },
+  {
+    title: "Cơ sở vật chất hiện đại",
+    description: "Học viện có các phòng học, phòng thí nghiệm, và cơ sở vật chất hiện đại, đáp ứng đầy đủ nhu cầu học tập và nghiên cứu của sinh viên.",
+    icon: <ScienceIcon sx={{ color: '#21593b', fontSize: 40 }} />
+  },
+];
 
 const HIGHTLIGHT_NEWS = [
     {
@@ -24,12 +40,12 @@ const HIGHTLIGHT_NEWS = [
         { 
           img: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80", 
           name: "Phương thức xét tuyển đại học năm 2024",
-          excerpt: "Cập nhật mới nhất về các phương thức xét tuyển đại học hệ chính quy năm 2024 tại Học viện Quân y. Các phương thức bao gồm xét kết quả thi tốt nghiệp THPT, xét học bạ, và thi đánh giá năng lực. Đặc biệt, Học viện cung cấp nhiều chương trình học bổng cho sinh viên xuất sắc."
+          excerpt: "Cập nhật mới nhất về các phương thức xét tuyển đại học hệ chính quy năm 2024 tạiCao đăng hậu cần. Các phương thức bao gồm xét kết quả thi tốt nghiệp THPT, xét học bạ, và thi đánh giá năng lực. Đặc biệt, Học viện cung cấp nhiều chương trình học bổng cho sinh viên xuất sắc."
         },
         { 
           img: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80", 
           name: "Thông tin ngành đào tạo và điểm chuẩn các năm trước",
-          excerpt: "Tổng hợp thông tin các ngành đào tạo và điểm chuẩn 3 năm gần nhất để thí sinh tham khảo. Các ngành đào tạo chính của Học viện Quân y bao gồm Y khoa, Dược học, Điều dưỡng, Quân y, và các ngành kỹ thuật y học. Điểm chuẩn và tỷ lệ chọi qua các năm có sự biến động lớn."
+          excerpt: "Tổng hợp thông tin các ngành đào tạo và điểm chuẩn 3 năm gần nhất để thí sinh tham khảo. Các ngành đào tạo chính củaCao đăng hậu cần bao gồm Y khoa, Dược học, Điều dưỡng, Quân y, và các ngành kỹ thuật y học. Điểm chuẩn và tỷ lệ chọi qua các năm có sự biến động lớn."
         },
         { 
           img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdKSGGnDEkdZY418FphDacR55QbWX_ZIceFg&s", 
@@ -54,17 +70,17 @@ const HIGHTLIGHT_NEWS = [
         { 
           img: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80", 
           name: "Điều kiện và tiêu chí xét tuyển cao đẳng",
-          excerpt: "Điều kiện xét tuyển hệ cao đẳng chính quy 2024 bao gồm: hoàn thành chương trình THPT hoặc tương đương, có sức khỏe tốt và có kết quả thi đạt yêu cầu. Học viện Quân y luôn đảm bảo chất lượng đầu ra của sinh viên."
+          excerpt: "Điều kiện xét tuyển hệ cao đẳng chính quy 2024 bao gồm: hoàn thành chương trình THPT hoặc tương đương, có sức khỏe tốt và có kết quả thi đạt yêu cầu.Cao đăng hậu cần luôn đảm bảo chất lượng đầu ra của sinh viên."
         },
         { 
           img: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80", 
           name: "Lịch học và thời gian đào tạo cao đẳng",
-          excerpt: "Thời gian đào tạo hệ cao đẳng tại Học viện Quân y là 3 năm, với các kỳ thi chính vào cuối mỗi năm học. Chương trình học bao gồm lý thuyết, thực hành, và các buổi học ngoại khóa tại các bệnh viện thực hành."
+          excerpt: "Thời gian đào tạo hệ cao đẳng tạiCao đăng hậu cần là 3 năm, với các kỳ thi chính vào cuối mỗi năm học. Chương trình học bao gồm lý thuyết, thực hành, và các buổi học ngoại khóa tại các bệnh viện thực hành."
         }
       ]
     },
     {
-      name: "Tuyển sinh sau đại học",
+      name: "Tuyển sinh sau cao đẳng",
       post: [
         { 
           img: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80", 
@@ -74,12 +90,12 @@ const HIGHTLIGHT_NEWS = [
         { 
           img: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80", 
           name: "Thông báo tuyển sinh nghiên cứu sinh năm 2024",
-          excerpt: "Kế hoạch tuyển sinh nghiên cứu sinh năm 2024 tại Học viện Quân y. Các ngành tuyển sinh bao gồm Y khoa, Dược học, Điều dưỡng, Kỹ thuật y học, và nhiều ngành khác. Quy trình xét tuyển và hồ sơ yêu cầu sẽ được cập nhật chi tiết."
+          excerpt: "Kế hoạch tuyển sinh nghiên cứu sinh năm 2024 tạiCao đăng hậu cần. Các ngành tuyển sinh bao gồm Y khoa, Dược học, Điều dưỡng, Kỹ thuật y học, và nhiều ngành khác. Quy trình xét tuyển và hồ sơ yêu cầu sẽ được cập nhật chi tiết."
         },
         { 
           img: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80", 
           name: "Danh mục các chuyên ngành đào tạo sau đại học",
-          excerpt: "Danh sách các chuyên ngành đào tạo trình độ thạc sĩ, tiến sĩ tại Học viện Quân y. Các ngành bao gồm các lĩnh vực nghiên cứu như Y học lâm sàng, Y tế công cộng, Quản lý bệnh viện, và nghiên cứu khoa học y tế."
+          excerpt: "Danh sách các chuyên ngành đào tạo trình độ thạc sĩ, tiến sĩ tạiCao đăng hậu cần. Các ngành bao gồm các lĩnh vực nghiên cứu như Y học lâm sàng, Y tế công cộng, Quản lý bệnh viện, và nghiên cứu khoa học y tế."
         },
         { 
           img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdKSGGnDEkdZY418FphDacR55QbWX_ZIceFg&s", 
@@ -157,7 +173,7 @@ export default function Tuyensinh() {
 
   return (
     <Box sx={{ bgcolor: '#f5f5f7' }}>
-     
+  
       <Box sx={{ position: 'relative', height: { xs: '60vh', md: '60vh' } }}>
       <Carousel 
   showArrows={true} 
@@ -194,7 +210,7 @@ export default function Tuyensinh() {
         Thông báo tuyển sinh năm 2024
       </Typography>
       <Typography variant='body1' sx={{ mt: 2, fontSize: '1rem' }}>
-        Học viện Quân y thông báo tuyển sinh các hệ đào tạo năm học 2024-2025
+       Cao đăng hậu cần thông báo tuyển sinh các hệ đào tạo năm học 2024-2025
       </Typography>
       <Button 
         variant="contained" 
@@ -313,7 +329,185 @@ export default function Tuyensinh() {
 </Carousel>
 
       </Box>
+      <Box sx={{ py: 8, bgcolor: '#f5f5f7' }}>
+  <Typography
+    variant="h4"
+    fontWeight="bold"
+    gutterBottom
+    sx={{
+      textAlign: 'center',
+      color: '#21593b',
+      mb: 6,
+      fontSize: { xs: '2rem', sm: '2.5rem', md: '3rem' }, // Responsive font size
+    }}
+  >
+    Tại sao bạn nên chọnCao đăng hậu cần?
+  </Typography>
 
+  <Stack
+    direction={{ xs: 'column', sm: 'row' }}
+    spacing={4}
+    justifyContent="center"
+    alignItems="center"
+  >
+    {REASONS.map((reason, index) => (
+      <Paper
+        key={index}
+        elevation={3}
+        sx={{
+          width: { xs: '90%', sm: 300 }, 
+          maxWidth: 350,
+          borderRadius: 2,
+          padding: 3,
+          textAlign: 'center',
+          bgcolor: '#ffffff',
+          boxShadow: '0 4px 12px rgba(0,0,0,0.1)',
+          '&:hover': { boxShadow: '0 8px 24px rgba(0,0,0,0.15)' },
+          transition: 'box-shadow 0.3s ease-in-out',
+        }}
+      >
+        <Box sx={{ mb: 2 }}>
+          {reason.icon}
+        </Box>
+        <Typography
+          variant="h6"
+          fontWeight="bold"
+          sx={{
+            color: '#21593b',
+            mb: 1,
+            fontSize: { xs: '1.2rem', sm: '1.5rem' },
+          }}
+        >
+          {reason.title}
+        </Typography>
+        <Typography
+          variant="body2"
+          color="text.secondary"
+          sx={{
+            fontSize: { xs: '0.9rem', sm: '1rem' }, 
+          }}
+        >
+          {reason.description}
+        </Typography>
+      </Paper>
+    ))}
+  </Stack>
+</Box>
+
+    <Box sx={{ 
+  backgroundColor: '#f5f9f7',
+  py: 8,
+  fontFamily: 'Arial, sans-serif'
+}}>
+<Container maxWidth="lg">
+  <Paper sx={{
+    p: 4,
+    borderRadius: 2,
+    boxShadow: '0 4px 12px rgba(0,0,0,0.1)',
+    backgroundColor: 'white',
+    borderTop: '4px solid #21593b'
+  }}>
+    {/* Tiêu đề */}
+    <Typography variant="h4" sx={{
+      color: '#21593b',
+      fontWeight: 'bold',
+      textAlign: 'center',
+      mb: 3
+    }}>
+      Hướng dẫn đăng ký vào học
+    </Typography>
+    
+    <Typography variant="h5" sx={{
+      color: '#21593b',
+      textAlign: 'center',
+      mb: 5,
+      fontWeight: 'bold'
+    }}>
+      Trường Cao đẳng Hậu cần
+    </Typography>
+
+
+    <Box sx={{ mb: 4 }}>
+      {['Truy cập trang đăng ký', 'Đăng nhập hoặc đăng ký tài khoản', 'Hoàn thành hồ sơ đăng ký'].map((step, index) => (
+        <Box key={index} sx={{
+          display: 'flex',
+          alignItems: 'flex-start',
+          mb: 3,
+          p: 2,
+          backgroundColor: '#f0f7f3',
+          borderRadius: 2
+        }}>
+          <Box sx={{
+            backgroundColor: '#21593b',
+            color: 'white',
+            fontWeight: 'bold',
+            borderRadius: '50%',
+            width: 30,
+            height: 30,
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            mr: 2,
+            flexShrink: 0,
+            mt: '2px'
+          }}>
+            {index + 1}
+          </Box>
+          <Box>
+            <Typography variant="body1" sx={{ fontWeight: 'bold', mb: 1 }}>
+              {step}
+            </Typography>
+            <Typography variant="body1">
+              {index === 0 && 'https://hau.can.edu.vn/dang-ky'}
+              {index === 1 && 'Nhấn đăng ký nếu chưa có tài khoản, nếu đã có tài khoản bạn đăng nhập để nộp hồ sơ'}
+              {index === 2 && 'Thực hiện các bước theo hướng dẫn để nộp hồ sơ vào Trường Cao đẳng Hậu cần'}
+            </Typography>
+          </Box>
+        </Box>
+      ))}
+    </Box>
+
+    {/* Nút đăng ký */}
+    <Box sx={{ textAlign: 'center', mt: 5 }}>
+      <Button
+        variant="contained"
+        size="large"
+        sx={{
+          backgroundColor: '#21593b',
+          color: 'white',
+          borderRadius: 1,
+          px: 6,
+          py: 1.5,
+          fontWeight: 'bold',
+          fontSize: '1.1rem',
+          '&:hover': { 
+            backgroundColor: '#1b4c29',
+            boxShadow: '0 4px 12px rgba(27, 76, 41, 0.3)'
+          }
+        }}
+      >
+        ĐĂNG KÝ NGAY
+      </Button>
+    </Box>
+
+    {/* Liên hệ */}
+    <Box sx={{
+      mt: 5,
+      pt: 3,
+      borderTop: '1px dashed #e0e0e0',
+      textAlign: 'center'
+    }}>
+      <Typography variant="body2" sx={{ color: '#666' }}>
+        Hotline tư vấn: 0123 456 789
+      </Typography>
+      <Typography variant="body2" sx={{ color: '#666', mt: 1 }}>
+        Email: tuyensinh@hau.can.edu.vn
+      </Typography>
+    </Box>
+  </Paper>
+</Container>
+
+</Box>
       <Container maxWidth="xl" sx={{ py: 6 }}>
        
         <Paper elevation={6} sx={{ 
@@ -325,13 +519,13 @@ export default function Tuyensinh() {
           <Stack direction={{ xs: 'column', md: 'row' }} spacing={6} alignItems="center">
             <Box sx={{ flex: 1 }}>
               <Typography variant="h2" fontWeight="800" color="#21593b" gutterBottom sx={{ fontSize: { xs: '2rem', md: '2.5rem' } }}>
-                Tuyển sinh Học viện Quân y 2024
+                Tuyển sinh Cao đẳng hậu cần 2024
               </Typography>
               <Typography variant="h5" sx={{ mb: 3, color: '#555' }}>
-                Học viện Quân y - Đào tạo y khoa chất lượng cao
+              Cao đẳng hậu cần - Đào tạo y khoa chất lượng cao
               </Typography>
               <Typography variant="body1" sx={{ mb: 2, fontSize: '1.1rem' }}>
-                Học viện Quân y là cơ sở đào tạo y khoa hàng đầu của Quân đội với hơn 70 năm xây dựng và phát triển, chương trình đào tạo đạt chuẩn quốc tế, cơ sở vật chất hiện đại.
+               Cao đăng hậu cần là cơ sở đào tạo y khoa hàng đầu của Quân đội với hơn 70 năm xây dựng và phát triển, chương trình đào tạo đạt chuẩn quốc tế, cơ sở vật chất hiện đại.
               </Typography>
               <List sx={{ mb: 3 }}>
                 {ADMISSION_INFO.map((item, index) => (
@@ -680,7 +874,7 @@ export default function Tuyensinh() {
   </Stack>
   <Box maxWidth="1500px" >
       <Typography variant="body1" color="text.secondary" sx={{ fontSize: '1.3rem', marginLeft : '60px'}}>
-        Học viện Quân y là một trung tâm Đào tạo, Nghiên cứu khoa học và Điều trị lớn của quân đội. 
+       Cao đăng hậu cần là một trung tâm Đào tạo, Nghiên cứu khoa học và Điều trị lớn của quân đội. 
         Trải qua quá trình xây dựng và trưởng thành, Nghiên cứu khoa học của Học viện đã đạt được những thành tựu đáng tự hào.
       </Typography>
     </Box>
@@ -771,6 +965,295 @@ export default function Tuyensinh() {
     </Button>
   </Box>
 </Paper>
+<Box sx={{
+  backgroundColor: 'white',
+  py: 6,
+  fontFamily: 'Arial, sans-serif',
+  minHeight: '100vh',
+}}>
+  <Container maxWidth="lg">
+    <Paper sx={{
+      p: 4,
+      borderRadius: 2,
+      boxShadow: '0 4px 20px rgba(0,0,0,0.15)',
+      background: 'rgba(33, 89, 59, 0.85)',
+      color: 'black', 
+      backdropFilter: 'blur(5px)',
+    }}>
+      {/* Tiêu đề */}
+      <Typography variant="h4" sx={{
+        color: 'white',
+        fontWeight: 'bold',
+        textAlign: 'center',
+        mb: 2, 
+        fontFamily: 'Roboto, sans-serif',
+      }}>
+        Đăng ký tư vấn tuyển sinh
+      </Typography>
+
+      <Typography variant="h6" sx={{
+        color: 'rgba(255,255,255,0.9)',
+        textAlign: 'center',
+        mb: 4,
+        fontFamily: 'Roboto, sans-serif',
+      }}>
+        Trường Cao đẳng hậu cần
+      </Typography>
+
+      
+      <Grid container spacing={3}>
+     
+        <Grid item xs={12} md={6}>
+          <Typography variant="subtitle1" sx={{
+            mb: 3,
+            fontWeight: 'bold',
+            color: 'white',
+            
+          }}>
+            Thông tin cá nhân
+          </Typography>
+
+          <TextField
+            fullWidth
+            label="Họ và tên"
+            variant="outlined"
+            required
+            sx={{
+              mb: 3,
+              '& .MuiOutlinedInput-root': {
+                borderRadius: 1,
+                backgroundColor: 'rgba(255,255,255,0.9)',
+              
+              },  '& .MuiInputLabel-root': {
+                top: '-6px', // Adjusts label positioning to avoid overlap
+                color : 'Black'
+              },
+            }}
+          />
+
+          {/* Số điện thoại */}
+          <TextField
+            fullWidth
+            label="Số điện thoại"
+            variant="outlined"
+            required
+            sx={{
+              mb: 3,
+              '& .MuiOutlinedInput-root': {
+                borderRadius: 1,
+                backgroundColor: 'rgba(255,255,255,0.9)',
+               
+              },  '& .MuiInputLabel-root': {
+                top: '-6px', 
+                 color : 'Black'
+              },
+            }}
+          />
+
+          {/* Ngày sinh */}
+          <TextField
+  fullWidth
+  label="Ngày sinh"
+  type="date"
+  variant="outlined"
+  InputLabelProps={{
+    shrink: true, // Ensures the label stays at the top when a value is entered
+  }}
+  sx={{
+    mb: 3,
+    '& .MuiOutlinedInput-root': {
+      borderRadius: 1,
+      backgroundColor: 'rgba(255, 255, 255, 0.9)',
+      height: 'auto', // Ensures input height is correctly adjusted
+    },
+    '& .MuiInputLabel-root': {
+      top: '-6px',
+       color : 'Black'
+    },
+  }}
+/>
+
+
+          {/* Email */}
+          <TextField
+            fullWidth
+            label="Email"
+            variant="outlined"
+            required
+            sx={{
+              mb: 3,
+              '& .MuiOutlinedInput-root': {
+                borderRadius: 1,
+                backgroundColor: 'rgba(255,255,255,0.9)',
+                '& fieldset': {
+                  borderColor: 'rgba(255,255,255,0.5)',
+                },
+              },
+              '& .MuiInputLabel-root': {
+                top: '-6px',
+                 color : 'Black'
+              },
+            }}
+          />
+
+          <TextField
+            fullWidth
+            label="Trường THPT / Đại học"
+            variant="outlined"
+            sx={{
+              mb: 3,
+              '& .MuiOutlinedInput-root': {
+                borderRadius: 1,
+                backgroundColor: 'rgba(255,255,255,0.9)',
+                '& fieldset': {
+                  borderColor: 'rgba(255,255,255,0.5)',
+                },
+              },
+              '& .MuiInputLabel-root': {
+                top: '-6px',
+                 color : 'Black'
+              },
+            }}
+          />
+
+          {/* Tỉnh/Thành phố */}
+          <TextField
+            fullWidth
+            label="Tỉnh/Thành phố *"
+            variant="outlined"
+            required
+            sx={{
+              mb: 3,
+              '& .MuiOutlinedInput-root': {
+                borderRadius: 1,
+                backgroundColor: 'rgba(255,255,255,0.9)',
+                '& fieldset': {
+                  borderColor: 'rgba(255,255,255,0.5)',
+                },
+              },
+              '& .MuiInputLabel-root': {
+                top: '-6px',
+                 color : 'Black'
+              },
+            }}
+          />
+
+          {/* Link Facebook */}
+          <TextField
+            fullWidth
+            label="Link Facebook của bạn"
+            variant="outlined"
+            sx={{
+              mb: 3,
+              '& .MuiOutlinedInput-root': {
+                borderRadius: 1,
+                backgroundColor: 'rgba(255,255,255,0.9)',
+                '& fieldset': {
+                  borderColor: 'rgba(255,255,255,0.5)',
+                },
+              },
+              '& .MuiInputLabel-root': {
+                top: '-6px',
+                 color : 'Black'
+              },
+            }}
+          />
+        </Grid>
+
+        {/* Cột phải - Nơi đăng ký học */}
+        <Grid item xs={12} md={6}>
+          <Typography variant="subtitle1" sx={{
+            mb: 2,
+            ml :0,
+            fontWeight: 'bold',
+            color: 'white',
+          }}>
+            Nơi đăng ký học
+          </Typography>
+
+          <Box sx={{
+            border: '1px solid rgba(255,255,255,0.3)',
+            borderRadius: 1,
+            width :'1000px',
+            p: 2,
+            textAlign :'center',
+            mb: 3,
+            ml:5,
+            backgroundColor: 'rgba(0,0,0,0.1)',
+          }}>
+            <Grid container spacing={1}>
+              {['Hà Nội', 'Hồ Chí Minh', 'Đà Nẵng', 'Cần Thơ', 'Quy Nhơn'].map((location) => (
+                <Grid item xs={6} sm={4} key={location}>
+                  <Box sx={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    p: 1,
+                    '&:hover': {
+                      backgroundColor: 'rgba(255,255,255,0.1)',
+                      borderRadius: 1,
+                    },
+                  }}>
+                    <Radio
+                      sx={{
+                        color: 'rgba(255,255,255,0.7)',
+                        '&.Mui-checked': { color: 'white' },
+                        mr: 1,
+                      }}
+                    />
+                    <Typography variant="body2" sx={{ color: 'white' }}>
+                      {location}
+                    </Typography>
+                  </Box>
+                </Grid>
+              ))}
+            </Grid>
+          </Box>
+
+        
+          <Button
+            
+            variant="contained"
+            size="large"
+            sx={{
+              width:'1000px',
+              backgroundColor: 'white',
+              textAlign : 'center',
+              display : 'flex',
+              alignContent :' center',
+              alignItems : 'center',
+              color: '#21593b',
+              borderRadius: 1,
+              marginLeft : '40px',
+              py: 1.5,
+              mt: 2,
+              fontWeight: 'bold',
+              '&:hover': {
+                backgroundColor: 'rgba(255,255,255,0.9)',
+                boxShadow: '0 2px 12px rgba(255,255,255,0.3)',
+              },
+            }}
+          >
+            ĐĂNG KÝ TƯ VẤN
+          </Button>
+
+          {/* Hướng dẫn */}
+          <Box sx={{
+            mt: 3,
+            pt: 2,
+            borderTop: '1px dashed rgba(255,255,255,0.3)',
+          }}>
+            <Typography variant="body2" sx={{ fontWeight: 'bold', color: 'white' }}>
+              HƯỚNG DẪN TRA CỨU THÔNG TIN
+            </Typography>
+            <Typography variant="body2" sx={{ color: 'rgba(255,255,255,0.8)', mt: 1 }}>
+              Vui lòng kiểm tra email và SMS sau khi đăng ký để nhận thông tin tư vấn.
+            </Typography>
+          </Box>
+        </Grid>
+      </Grid>
+    </Paper>
+  </Container>
+</Box>
 
 
       </Container>
