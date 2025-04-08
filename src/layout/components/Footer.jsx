@@ -54,10 +54,10 @@ export default function Footer() {
                     CỔNG THÔNG TIN ĐIỆN TỬ HỌC VIỆN QUÂN Y - BỘ QUỐC PHÒNG
                   </Typography>
                   <Typography>
-                  <strong>Địa chỉ:</strong> Số 160 - Đường Phùng Hưng - Phường Phúc La - Quận Hà Đông - Thành phố Hà Nội
+                  <strong>Địa chỉ:</strong> 50 Lê Văn Việt, Hiệp Phú , Thủ Đức, HCM
                   </Typography>
                   <Typography mt={1}>
-                    <strong>Trưởng ban biên tập:</strong> Trung tướng GS. TS. Trần Viết Tiến - Giám đốc Học viện Quân y
+                    <strong>Trưởng ban biên tập:</strong> Đại Tá: TS BS Nguyễn Ngọc Huy
                   </Typography>
                   <Typography mt={1}>
                     <strong>Giấy phép số:</strong> 122/GP-TTĐT ngày 23/09/2008 của Bộ TT&TT

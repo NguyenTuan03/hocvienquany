@@ -17,7 +17,7 @@ export default function Home() {
           CAROUSEL.map((item, index) => {
             return (
               <Box key={index} sx={{ width: "100%", height: "100%" }}>
-                <img src={item.img} alt={item.name} style={{ width: "100%", height: "100%" }} />
+                <img src={item.img} alt={item.name} style={{ width: "100%", height: "100%",objectFit:'cover' }} />
                 <p className="legend">{item.name}</p>
               </Box>
             )
