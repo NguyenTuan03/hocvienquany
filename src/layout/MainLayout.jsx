@@ -2,6 +2,7 @@ import { Grid } from '@mui/material';
 import React from 'react'
 import Header from './components/Header';
 import Footer from './components/Footer';
+import ScrollToTop from 'react-scroll-to-top';
 
 export default function MainLayout({children}) {
     return (
@@ -27,6 +28,7 @@ export default function MainLayout({children}) {
             <Grid item>
                 <Footer />
             </Grid>
+            <ScrollToTop smooth />
         </Grid>
     </>
     );
