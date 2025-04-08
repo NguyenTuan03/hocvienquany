@@ -24,9 +24,19 @@ export default function Header() {
           justifyContent: 'center',
         }}
       >
-        <Typography height={"160px"} component="a" display={"flex"} alignItems={'center'}>
-          <img src="/Logo.png" alt="Logo" width={"100%"} height={"100%"}/>
-        </Typography>      
+        <Box height="160px" display="flex" alignItems="center">
+          <Stack direction="row" alignItems="center" spacing={2}>
+            <img src="/Logo.png" alt="Logo" style={{ height: 100, width: 'auto' }} />
+            <Box>
+              <Typography fontSize="30px" fontWeight={600} color="#fffbf0">
+                Cao Đẳng Hậu Cần 2
+              </Typography>
+              <Typography fontSize="16px" fontWeight={400} color="#caf8e0">
+                2 Military Medical Colleges
+              </Typography>
+            </Box>
+          </Stack>
+        </Box>      
       </Box>      
       <Box
         position={"sticky"}

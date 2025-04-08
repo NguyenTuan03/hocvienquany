@@ -20,7 +20,19 @@ export default function Footer() {
     >
           <Grid container spacing={2} mb={4}>
             <Grid item size={5}>
-              <img src='/Logo.png' width={"350px"} height={"100%"}/>
+              <Box height="160px" display="flex" alignItems="center">
+                        <Stack direction="row" alignItems="center" spacing={2}>
+                          <img src="/Logo.png" alt="Logo" style={{ height: 100, width: 'auto' }} />
+                          <Box>
+                            <Typography fontSize="30px" fontWeight={600} color="#fffbf0">
+                              Cao Đẳng Hậu Cần 2
+                            </Typography>
+                            <Typography fontSize="16px" fontWeight={400} color="#caf8e0">
+                              2 Military Medical Colleges
+                            </Typography>
+                          </Box>
+                        </Stack>
+                      </Box>    
             </Grid>
             <Grid item size={7} display={"flex"} alignItems={"center"} justifyContent={"space-between"}>
               <Grid container spacing={2} width={"100%"}>

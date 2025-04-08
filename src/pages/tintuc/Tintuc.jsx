@@ -79,10 +79,10 @@ export default function NewsPage() {
           <img src="https://images.unsplash.com/photo-1581595219315-a187dd40c322?ixlib=rb-4.0.3&auto=format&fit=crop&w=1800&q=80" alt="Học viện Quân y" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
           <Box sx={{ position: 'absolute', top: '50%', left: { xs: '5%', md: '10%' }, transform: 'translateY(-50%)', zIndex: 2, maxWidth: { xs: '90%', md: '50%' }, color: 'white' }}>
             <Typography variant='h2' fontWeight='bold' sx={{ fontSize: { xs: '2rem', md: '3.5rem' }, textShadow: '2px 2px 4px rgba(0,0,0,0.5)' }}>
-              Học viện Quân y
+              Cao Đẳng Hậu Cần 2
             </Typography>
             <Typography variant='body1' sx={{ mt: 2, mb: 3, fontSize: { xs: '1rem', md: '1.2rem' }, textShadow: '1px 1px 3px rgba(0,0,0,0.5)' }}>
-              70 năm đào tạo bác sĩ quân y tài đức, phục vụ nhân dân và bảo vệ Tổ quốc
+              70 năm đào tạo học viên, phục vụ nhân dân và bảo vệ Tổ quốc
             </Typography>
             <Button variant="contained" sx={{ bgcolor: '#21593b', '&:hover': { bgcolor: '#184328' }, borderRadius: 2, px: 3, py: 1 }}>
               Tìm hiểu thêm <ArrowForwardIcon sx={{ ml: 1 }} />
