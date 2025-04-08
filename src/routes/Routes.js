@@ -1,4 +1,5 @@
 
+import GioiThieu from '../pages/gioithieu/GioiThieu';
 import Tintuc from '../pages/tintuc/Tintuc';
 import Tuyensinh from '../pages/tuyensinh/Tuyensinh';
 import routesConfig from './../config/Routes';
@@ -15,6 +16,10 @@ const publicRoutes = [
     {
         path: routesConfig.tintuc,
         component: Tintuc
-    }
+    },
+    {
+        path: routesConfig.gioithieu,
+        component: GioiThieu
+    },
 ]
 export default publicRoutes;
