@@ -20,7 +20,7 @@ export default function Footer() {
     >
           <Grid container spacing={2} mb={4}>
             <Grid item size={5}>
-              <img src='/logo.svg' width={"350px"} height={"100%"}/>
+              <img src='/Logo.png' width={"350px"} height={"100%"}/>
             </Grid>
             <Grid item size={7} display={"flex"} alignItems={"center"} justifyContent={"space-between"}>
               <Grid container spacing={2} width={"100%"}>

@@ -25,7 +25,7 @@ export default function Header() {
         }}
       >
         <Typography height={"160px"} component="a" display={"flex"} alignItems={'center'}>
-          <img src="/logo.svg" alt="Logo" />
+          <img src="/Logo.png" alt="Logo" width={"100%"} height={"100%"}/>
         </Typography>      
       </Box>      
       <Box
