@@ -1,98 +1,123 @@
-import { Box, Grid, Typography } from '@mui/material'
+import { Box, Grid, Link, Stack, Typography } from '@mui/material'
 import React from 'react'
-import { Link } from 'react-router'
 
 export default function Footer() {
   return (
     
-        <Box sx={{ backgroundColor: '#104a3e', color: '#fff', px: { xs: 3, md: 10 }, py: 5, fontSize: '14px' }}>
-          <Grid container spacing={4}>
-            {/* Logo + Info */}
-            <Grid item xs={12} md={4}>
-              <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
-                <img
-                  src="https://hocvienquany.vn/wp-content/themes/hvqy/images/logo.png"
-                  alt="logo"
-                  style={{ width: 60, marginRight: 10 }}
-                />
-                <Box>
-                  <Typography variant="h6" sx={{ fontWeight: 'bold' }}>
-                    HỌC VIỆN QUÂN Y
-                  </Typography>
-                  <Typography variant="body2">Vietnam Military Medical University</Typography>
-                </Box>
-              </Box>
-    
-              <Typography>
-                <strong>Địa chỉ:</strong> Số 160 - Đường Phùng Hưng - Phường Phúc La - Quận Hà Đông - Thành phố Hà Nội
-              </Typography>
-              <Typography mt={1}>
-                <strong>Trưởng ban biên tập:</strong> Trung tướng GS. TS. Trần Viết Tiến - Giám đốc Học viện Quân y
-              </Typography>
-              <Typography mt={1}>
-                <strong>Giấy phép số:</strong> 122/GP-TTĐT ngày 23/09/2008 của Bộ TT&TT
-              </Typography>
+    <Box
+      component="footer"
+      sx={{
+        backgroundImage: "url('/bg-footer.png')",
+        backgroundRepeat: 'no-repeat',
+        backgroundSize: 'cover',
+        backgroundColor: '#2c6f4b',
+        color: '#fff',
+        px: { xs: 3, md: 10 },
+        py: 5,
+        fontSize: '14px',
+        lineHeight: 1.8,
+      }}
+    >
+          <Grid container spacing={2} mb={4}>
+            <Grid item size={5}>
+              <img src='/logo.svg' width={"350px"} height={"100%"}/>
             </Grid>
-    
-            {/* Danh mục chính */}
-            <Grid item xs={6} md={2}>
-              <Typography variant="subtitle1" fontWeight="bold" gutterBottom>
-                DANH MỤC CHÍNH
-              </Typography>
-              <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
-                <li><Link color="inherit" underline="hover">Giới thiệu</Link></li>
-                <li><Link color="inherit" underline="hover">Tin tức</Link></li>
-                <li><Link color="inherit" underline="hover">Tuyển sinh</Link></li>
-                <li><Link color="inherit" underline="hover">Đào tạo</Link></li>
-                <li><Link color="inherit" underline="hover">Nghiên cứu khoa học</Link></li>
-                <li><Link color="inherit" underline="hover">Hợp tác</Link></li>
-                <li><Link color="inherit" underline="hover">Liên hệ</Link></li>
-              </ul>
-            </Grid>
-    
-            {/* Hợp tác & Liên kết */}
-            <Grid item xs={6} md={3}>
-              <Typography variant="subtitle1" fontWeight="bold" gutterBottom>
-                HỢP TÁC
-              </Typography>
-              <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
-                <li><Link color="inherit" underline="hover">Hợp tác trong nước</Link></li>
-                <li><Link color="inherit" underline="hover">Hợp tác Quốc tế</Link></li>
-              </ul>
-    
-              <Typography variant="subtitle1" fontWeight="bold" gutterBottom mt={2}>
-                LIÊN KẾT
-              </Typography>
-              <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
-                <li><Link color="inherit" underline="hover">Tạp chí Y dược học Quân sự</Link></li>
-                <li><Link color="inherit" underline="hover">E Learning</Link></li>
-                <li><Link color="inherit" underline="hover">Học liệu</Link></li>
-                <li><Link color="inherit" underline="hover">Cổng thông tin điện tử Chính phủ</Link></li>
-                <li><Link color="inherit" underline="hover">Cổng Dịch vụ công Bộ Quốc Phòng</Link></li>
-              </ul>
-            </Grid>
-    
-            {/* Khác */}
-            <Grid item xs={6} md={3}>
-              <Typography variant="subtitle1" fontWeight="bold" gutterBottom>
-                KHÁC
-              </Typography>
-              <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
-                <li><Link color="inherit" underline="hover">Bản tin</Link></li>
-                <li><Link color="inherit" underline="hover">Tổ chức</Link></li>
-                <li><Link color="inherit" underline="hover">Ban biên tập</Link></li>
-                <li><Link color="inherit" underline="hover">Facebook</Link></li>
-                <li><Link color="inherit" underline="hover">Youtube</Link></li>
-              </ul>
-            </Grid>
+            <Grid item size={7} display={"flex"} alignItems={"center"} justifyContent={"space-between"}>
+              <Grid container spacing={2} width={"100%"}>
+                <Grid item size={4}>
+                  <Typography color='#ffb236'><strong>Đào tạo:</strong></Typography>
+                  <Typography>069698910</Typography>
+                </Grid>
+                <Grid item size={4}>
+                  <Typography color='#ffb236'><strong>Tuyển sinh:</strong></Typography>
+                  <Typography>069698910</Typography>
+                </Grid>
+                <Grid item size={4}>
+                  <Typography color='#ffb236'><strong>Hỗ trợ học viên:</strong></Typography>
+                  <Typography>069698910</Typography>  
+                </Grid>
+              </Grid>
+            </Grid>            
           </Grid>
-    
-          {/* Contact Numbers */}
-          <Box mt={4} sx={{ borderTop: '1px solid #ccc', pt: 2 }}>
-            <Typography><strong>Đào tạo:</strong> 069698910</Typography>
-            <Typography><strong>Tuyển sinh:</strong> 069698910</Typography>
-            <Typography><strong>Hỗ trợ học viên:</strong> 069698910</Typography>
-          </Box>
+            <Box
+                sx={{
+                    borderBottom: '1px dashed #dcdcdc',
+                    width: '100%',
+                    marginY: '16px',
+                }}
+            />
+          <Grid container spacing={4}>
+            <Grid size={5}>
+              <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>                
+                <Stack>
+                  <Typography fontSize={"15px"} sx={{ fontWeight: 'bold' }}>
+                    CỔNG THÔNG TIN ĐIỆN TỬ HỌC VIỆN QUÂN Y - BỘ QUỐC PHÒNG
+                  </Typography>
+                  <Typography>
+                  <strong>Địa chỉ:</strong> Số 160 - Đường Phùng Hưng - Phường Phúc La - Quận Hà Đông - Thành phố Hà Nội
+                  </Typography>
+                  <Typography mt={1}>
+                    <strong>Trưởng ban biên tập:</strong> Trung tướng GS. TS. Trần Viết Tiến - Giám đốc Học viện Quân y
+                  </Typography>
+                  <Typography mt={1}>
+                    <strong>Giấy phép số:</strong> 122/GP-TTĐT ngày 23/09/2008 của Bộ TT&TT
+                  </Typography>
+                </Stack>
+              </Box>
+            </Grid>
+            <Grid size={7}>
+                <Grid container spacing={2} width={"100%"}>
+                  <Grid size={4} item xs={6} md={3}>
+                    <Typography variant="subtitle1" fontWeight="bold" gutterBottom>
+                      DANH MỤC CHÍNH
+                    </Typography>
+                    <ul style={{ padding: 0, margin: 0 }}>
+                      <li style={{marginBottom:'8px'}}><Link sx={{fontSize:'14px',textDecoration:'none',color:'#b8dbc8',cursor:'pointer',":hover":{color:'#fff'}}} color="#b8dbc8" underline="none">Giới thiệu</Link></li>
+                      <li style={{marginBottom:'8px'}}><Link sx={{fontSize:'14px',textDecoration:'none',color:'#b8dbc8',cursor:'pointer',":hover":{color:'#fff'}}} color="#b8dbc8" underline="none">Tin tức</Link></li>
+                      <li style={{marginBottom:'8px'}}><Link sx={{fontSize:'14px',textDecoration:'none',color:'#b8dbc8',cursor:'pointer',":hover":{color:'#fff'}}} color="#b8dbc8" underline="none">Tuyển sinh</Link></li>
+                      <li style={{marginBottom:'8px'}}><Link sx={{fontSize:'14px',textDecoration:'none',color:'#b8dbc8',cursor:'pointer',":hover":{color:'#fff'}}} color="#b8dbc8" underline="none">Đào tạo</Link></li>
+                      <li style={{marginBottom:'8px'}}><Link sx={{fontSize:'14px',textDecoration:'none',color:'#b8dbc8',cursor:'pointer',":hover":{color:'#fff'}}} color="#b8dbc8" underline="none">Nghiên cứu khoa học</Link></li>
+                      <li style={{marginBottom:'8px'}}><Link sx={{fontSize:'14px',textDecoration:'none',color:'#b8dbc8',cursor:'pointer',":hover":{color:'#fff'}}} color="#b8dbc8" underline="none">Hợp tác</Link></li>
+                      <li style={{marginBottom:'8px'}}><Link sx={{fontSize:'14px',textDecoration:'none',color:'#b8dbc8',cursor:'pointer',":hover":{color:'#fff'}}} color="#b8dbc8" underline="none">Liên hệ</Link></li>
+                    </ul>
+                  </Grid>
+                      
+                  <Grid size={4} item xs={6} md={3}>
+                    <Typography variant="subtitle1" fontWeight="bold" gutterBottom>
+                      HỢP TÁC
+                    </Typography>
+                    <ul style={{ padding: 0, margin: 0 }}>
+                    <li style={{marginBottom:'8px'}}><Link sx={{textDecoration:'none',color:'#b8dbc8',cursor:'pointer',":hover":{color:'#fff'}}} color="#b8dbc8" underline="none">Hợp tác trong nước</Link></li>
+                    <li style={{marginBottom:'8px'}}><Link sx={{textDecoration:'none',color:'#b8dbc8',cursor:'pointer',":hover":{color:'#fff'}}} color="#b8dbc8" underline="none">Hợp tác quốc tế</Link></li>
+                    </ul>
+          
+                    <Typography variant="subtitle1" fontWeight="bold" gutterBottom mt={2}>
+                      LIÊN KẾT
+                    </Typography>
+                    <ul style={{ padding: 0, margin: 0 }}>
+                      <li style={{marginBottom:'8px'}}><Link sx={{fontSize:'14px',textDecoration:'none',color:'#b8dbc8',cursor:'pointer',":hover":{color:'#fff'}}} color="#b8dbc8" underline="none">Tạp chí Y dược học Quân sự</Link></li>
+                      <li style={{marginBottom:'8px'}}><Link sx={{fontSize:'14px',textDecoration:'none',color:'#b8dbc8',cursor:'pointer',":hover":{color:'#fff'}}} color="#b8dbc8" underline="none">E Learning</Link></li>
+                      <li style={{marginBottom:'8px'}}><Link sx={{fontSize:'14px',textDecoration:'none',color:'#b8dbc8',cursor:'pointer',":hover":{color:'#fff'}}} color="#b8dbc8" underline="none">Học liệu</Link></li>
+                      <li style={{marginBottom:'8px'}}><Link sx={{fontSize:'14px',textDecoration:'none',color:'#b8dbc8',cursor:'pointer',":hover":{color:'#fff'}}} color="#b8dbc8" underline="none">Cổng thông tin điện tử Chính phủ</Link></li>
+                      <li style={{marginBottom:'8px'}}><Link sx={{fontSize:'14px',textDecoration:'none',color:'#b8dbc8',cursor:'pointer',":hover":{color:'#fff'}}} color="#b8dbc8" underline="none">Cổng Dịch vụ công Bộ Quốc Phòng</Link></li>                                                                                                          
+                    </ul>
+                  </Grid>
+                      
+                  <Grid size={4} item xs={6} md={3}>
+                    <Typography variant="subtitle1" fontWeight="bold" gutterBottom>
+                      KHÁC
+                    </Typography>
+                    <ul style={{ padding: 0, margin: 0 }}>
+                      <li style={{marginBottom:'8px'}}><Link sx={{fontSize:'14px',textDecoration:'none',color:'#b8dbc8',cursor:'pointer',":hover":{color:'#fff'}}} color="#b8dbc8" underline="none">Bản tin</Link></li>
+                      <li style={{marginBottom:'8px'}}><Link sx={{fontSize:'14px',textDecoration:'none',color:'#b8dbc8',cursor:'pointer',":hover":{color:'#fff'}}} color="#b8dbc8" underline="none">Tổ chức</Link></li>
+                      <li style={{marginBottom:'8px'}}><Link sx={{fontSize:'14px',textDecoration:'none',color:'#b8dbc8',cursor:'pointer',":hover":{color:'#fff'}}} color="#b8dbc8" underline="none">Ban biên tập</Link></li>
+                      <li style={{marginBottom:'8px'}}><Link sx={{fontSize:'14px',textDecoration:'none',color:'#b8dbc8',cursor:'pointer',":hover":{color:'#fff'}}} color="#b8dbc8" underline="none">Facebook</Link></li>
+                      <li style={{marginBottom:'8px'}}><Link sx={{fontSize:'14px',textDecoration:'none',color:'#b8dbc8',cursor:'pointer',":hover":{color:'#fff'}}} color="#b8dbc8" underline="none">Youtube</Link></li>                      
+                    </ul>
+                  </Grid>
+                </Grid>
+            </Grid>                            
+          </Grid>                        
         </Box>
   )
 }

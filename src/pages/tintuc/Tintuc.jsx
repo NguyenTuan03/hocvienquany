@@ -106,7 +106,7 @@ export default function NewsPage() {
       flexWrap: 'nowrap',
       gap: 1,
       
-      width: '1500px',  
+      width: '100%',  
       padding: 1
     }}
   >
