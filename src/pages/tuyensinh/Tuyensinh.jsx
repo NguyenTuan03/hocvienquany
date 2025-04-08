@@ -10,23 +10,29 @@ import ScienceIcon from '@mui/icons-material/Science';
 import LocalHospitalIcon from '@mui/icons-material/LocalHospital';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
+
+
 const REASONS = [
   {
     title: "Chất lượng đào tạo",
     description: "Học viện Quân y là nơi đào tạo những bác sĩ quân y hàng đầu, với chương trình giảng dạy chất lượng cao và đội ngũ giảng viên giàu kinh nghiệm.",
-    icon: <SchoolIcon sx={{ color: '#21593b', fontSize: 40 }} />
+    icon: <SchoolIcon sx={{ color: '#21593b', fontSize: 40 }} />,
+    img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdKSGGnDEkdZY418FphDacR55QbWX_ZIceFg&s",
   },
   {
     title: "Cơ hội nghề nghiệp",
-    description: "Sinh viên tốt nghiệp tại Cao đăng hậu cần có cơ hội làm việc tại các cơ quan y tế quân đội, bệnh viện, và các tổ chức y tế quốc tế.",
-    icon: <SchoolIcon sx={{ color: '#21593b', fontSize: 40 }} />
+    description: "Sinh viên tốt nghiệp tại Cao đẳng hậu cần có cơ hội làm việc tại các cơ quan y tế quân đội, bệnh viện, và các tổ chức y tế quốc tế.",
+    icon: <SchoolIcon sx={{ color: '#21593b', fontSize: 40 }} />,
+    img: "https://daihoc.fpt.edu.vn/wp-content/uploads/2024/12/52-63-tcbc-fpt-educamp-2024-anh-1-2642-png.avif", // Add img property if needed, or leave as empty string
   },
   {
     title: "Cơ sở vật chất hiện đại",
     description: "Học viện có các phòng học, phòng thí nghiệm, và cơ sở vật chất hiện đại, đáp ứng đầy đủ nhu cầu học tập và nghiên cứu của sinh viên.",
-    icon: <ScienceIcon sx={{ color: '#21593b', fontSize: 40 }} />
+    icon: <ScienceIcon sx={{ color: '#21593b', fontSize: 40 }} />,
+    img: "", // Add img property if needed, or leave as empty string
   },
 ];
+
 
 const HIGHTLIGHT_NEWS = [
     {
@@ -341,7 +347,7 @@ export default function Tuyensinh() {
       fontSize: { xs: '2rem', sm: '2.5rem', md: '3rem' }, // Responsive font size
     }}
   >
-    Tại sao bạn nên chọnCao đăng hậu cần?
+    Tại sao bạn nên chọn Cao đẳng Hậu cần?
   </Typography>
 
   <Stack
@@ -355,8 +361,8 @@ export default function Tuyensinh() {
         key={index}
         elevation={3}
         sx={{
-          width: { xs: '90%', sm: 300 }, 
-          maxWidth: 350,
+          width: { xs: '90%', sm: '300px', md: '350px' }, // Adjust width for responsiveness
+          height: 'auto', // Allow the height to adapt
           borderRadius: 2,
           padding: 3,
           textAlign: 'center',
@@ -384,15 +390,39 @@ export default function Tuyensinh() {
           variant="body2"
           color="text.secondary"
           sx={{
-            fontSize: { xs: '0.9rem', sm: '1rem' }, 
+            fontSize: { xs: '0.9rem', sm: '1rem' },
           }}
         >
           {reason.description}
         </Typography>
+
+        {/* Adjust Image Display */}
+        <Box
+          sx={{
+            flex: 1,
+            height: 'auto',
+            display: { xs: 'block', sm: 'block', md: 'block' }, // Ensure image appears on larger screens
+            borderRadius: 2,
+            overflow: 'hidden',
+            boxShadow: 6,
+            mt: 2,
+          }}
+        >
+          <img
+            src="https://daihoc.fpt.edu.vn/wp-content/uploads/2024/12/z6121278429566_e416d75af84ba589010cbb9a6585f7b4-2048x1365.avif"
+            alt="Campus"
+            style={{
+              width: '100%', // Full width of the box
+              height: 'auto', // Maintain aspect ratio
+              objectFit: 'cover', // Ensure it covers the container nicely
+            }}
+          />
+        </Box>
       </Paper>
     ))}
   </Stack>
 </Box>
+
 
     <Box sx={{ 
   backgroundColor: '#f5f9f7',
