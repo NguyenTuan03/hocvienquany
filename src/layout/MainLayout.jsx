@@ -7,9 +7,14 @@ export default function MainLayout({children}) {
     return (
         <>
         <Grid
+            width={'100%'}
             container
             direction="column"
-            sx={{ minHeight: '100vh' }} 
+            sx={{
+                height: '100%',
+                 minHeight: '100vh',
+                 overflow:'visible'
+            }} 
         >
             <Grid item>
                 <Header />
