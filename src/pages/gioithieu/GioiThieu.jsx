@@ -112,7 +112,7 @@ export default function GioiThieu() {
                 </TimelineItem>
                 </Timeline>        
                 <Typography variant="h2" textAlign={"center"} marginBottom={"50px"} fontWeight="800" color="#21593b" gutterBottom sx={{ fontSize: { xs: '2rem', md: '2.5rem' } }}>
-                    Những thành tích vẻ vang trong quá trình xây dựng, phát triển và trưởng thành:
+                    Những thành tích vẻ vang trong quá trình xây dựng, phát triển và trưởng thành
                 </Typography>                           
                 
                 <Paper elevation={6} sx={{ 
@@ -122,7 +122,7 @@ export default function GioiThieu() {
                     background: 'linear-gradient(to right, #ffffff, #f8f9fa)'
                 }}>
                     <Typography variant="body" fontWeight="800" color="#21593b" gutterBottom sx={{marginBottom:'30px', fontSize: { xs: '2rem', md: '2.5rem' } }}>
-                        Trong sự nghiệp giải phóng dân tộc, xây dựng và bảo vệ Tổ quốc Việt Nam xã hội chủ nghĩa:
+                        Trong sự nghiệp giải phóng dân tộc, xây dựng và bảo vệ Tổ quốc Việt Nam xã hội chủ nghĩa
                     </Typography>              
                     <Stack direction={{ xs: 'column', md: 'row' }} spacing={6} alignItems="center" marginTop={"40px"}>
                         <Box sx={{ flex: 1 }}>                            
@@ -160,7 +160,7 @@ export default function GioiThieu() {
                     background: 'linear-gradient(to right, #ffffff, #f8f9fa)'
                 }}>
                     <Typography variant="body" fontWeight="800" color="#21593b" gutterBottom sx={{marginBottom:'30px', fontSize: { xs: '2rem', md: '2.5rem' } }}>
-                        Trong sự nghiệp đổi mới:
+                        Trong sự nghiệp đổi mới
                     </Typography>              
                     <Stack direction={{ xs: 'column', md: 'row' }} spacing={6} alignItems="center" marginTop={"40px"}>
                         <Box sx={{ flex: 1 }}>                            

@@ -23,7 +23,7 @@ export const NAVIGATION = [
         to:'/daotao',
     },
     {
-        name: 'Nghiên cứu khoa học',
+        name: 'NCKH',
         to:'/nghiencuukhoahoc',
     },
     {

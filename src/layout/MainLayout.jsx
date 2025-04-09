@@ -28,7 +28,7 @@ export default function MainLayout({children}) {
             <Grid item>
                 <Footer />
             </Grid>
-            <ScrollToTop smooth />
+            <ScrollToTop smooth/>
         </Grid>
     </>
     );

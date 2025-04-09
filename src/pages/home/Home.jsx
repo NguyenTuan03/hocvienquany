@@ -11,7 +11,8 @@ import { LOGO } from '../../enum/logo';
 export default function Home() {
   const [selectedIndex, setSelectedIndex] = useState(0);
   return (
-    <Box>
+    <Box sx={{
+    }}>
       <Carousel showArrows={true} showThumbs={false} showStatus={false}>
         {
           CAROUSEL.map((item, index) => {
@@ -34,7 +35,9 @@ export default function Home() {
               style={{ width: '100%', height: 'auto',position:'relative',zIndex:1 }}
             />
           </Box>
-          <Box flex={1}>
+          <Box flex={1} sx={{
+            marginTop: {xs:"50px", md:"0px"},
+          }}>
             <Typography variant='h4' fontWeight={"bold"}>
               SỨ MẠNG, TẦM NHÌN, GIÁ TRỊ CỐT LÕI
             </Typography>
@@ -64,7 +67,9 @@ export default function Home() {
             {
               HIGHTLIGHT_NEWS.map((item, index) => {
                 return (
-                  <Stack key={index} flexDirection={"row"} alignItems={"center"} gap={"10px"} marginTop={"20px"}
+                  <Stack key={index} flexDirection={"row"} alignItems={"center"} gap={"10px"} marginTop={"20px"} sx={{
+                    "cursor": "pointer",
+                  }}
                     onClick={() => setSelectedIndex(index)}
                   >
                     <Typography 
@@ -81,7 +86,7 @@ export default function Home() {
           </Stack>
           <Grid container spacing={2} marginTop="20px">
             {HIGHTLIGHT_NEWS[selectedIndex]?.post?.map((post, i) => (
-              <Grid item size={3} key={i}>
+              <Grid item size={{xs:6,md:3}} key={i}>
                 <Box borderRadius={2} overflow="hidden" boxShadow={2}>
                   <img
                     src={post.img}
@@ -135,13 +140,13 @@ export default function Home() {
                 <Typography fontSize={"26px"} fontWeight={'bold'}>Nghiên cứu khoa học</Typography>
                 <Typography color='#5f5f5f'>Học viện Quân y là một trung tâm Đào tạo, Nghiên cứu khoa học và Điều trị lớn của quân đội. Trải qua quá trình xây dựng và trưởng thành, Nghiên cứu khoa học của Học viện đã đạt được những thành tựu đáng tự hào.</Typography>
               </Box>
-              <Button>Xem thêm</Button>
+              <Button variant='text' size='small'>Xem thêm</Button>
           </Stack>
           <Grid container spacing={2} marginTop="20px">
               {
                 SCIENCE.map((item, index) => {
                   return (
-                    <Grid item size={3} key={index}>
+                    <Grid item size={{xs:6,md:3}} key={index}>
                       <Box borderRadius={2} overflow="hidden" boxShadow={2} minHeight={"270px"}>
                         <img
                           src={item.img}

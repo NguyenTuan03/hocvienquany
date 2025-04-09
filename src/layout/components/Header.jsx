@@ -1,32 +1,46 @@
-import { Box, Container, FormControl, FormHelperText, MenuItem, Select, Stack, TextField, Typography } from '@mui/material'
-import React, { useState } from 'react'
-import { NAVIGATION } from '../../enum/navigation';
-import { EnglishIcon, VietnamIcon } from './../../components/icon/Icon';
-import SearchIcon from '@mui/icons-material/Search';
-import { useNavigate } from 'react-router';
-export default function Header() {  
-  const [language, setLanguage] = useState('Vietnamese');
-  const nav = useNavigate()
+import {
+  Box,
+  Container,
+  FormControl,
+  FormHelperText,
+  MenuItem,
+  Select,
+  Stack,
+  TextField,
+  Typography,
+} from "@mui/material";
+import React, { useState } from "react";
+import { NAVIGATION } from "../../enum/navigation";
+import { EnglishIcon, VietnamIcon } from "./../../components/icon/Icon";
+import SearchIcon from "@mui/icons-material/Search";
+import { useNavigate } from "react-router";
+export default function Header() {
+  const [language, setLanguage] = useState("Vietnamese");
+  const nav = useNavigate();
   const handleChange = (event) => {
     setLanguage(event.target.value);
   };
   return (
     <>
-      <Box                
+      <Box
         sx={{
           backgroundImage: 'url("/bg-header.svg")',
-          backgroundRepeat: 'no-repeat',
-          backgroundSize: 'cover',
-          backgroundPosition: '50%',        
-          width: '100%',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "cover",
+          backgroundPosition: "50%",
+          width: "100%",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
         }}
       >
         <Box height="160px" display="flex" alignItems="center">
           <Stack direction="row" alignItems="center" spacing={2}>
-            <img src="/Logo.png" alt="Logo" style={{ height: 100, width: 'auto' }} />
+            <img
+              src="/Logo.png"
+              alt="Logo"
+              style={{ height: 100, width: "auto" }}
+            />
             <Box>
               <Typography fontSize="30px" fontWeight={600} color="#fffbf0">
                 Cao Đẳng Hậu Cần 2
@@ -36,8 +50,8 @@ export default function Header() {
               </Typography>
             </Box>
           </Stack>
-        </Box>      
-      </Box>      
+        </Box>
+      </Box>
       <Box
         position={"sticky"}
         top={0}
@@ -48,36 +62,48 @@ export default function Header() {
         width="100%"
         sx={{
           background: "linear-gradient(180deg, #2e724d, #286a46)",
-          padding:"8px 16px",          
+          padding: "8px 16px",
         }}
       >
-        <Container sx={{
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center",          
-          height: "100%",
-        }}>
-          <Stack flexDirection={"row"} gap={"20px"} alignItems="center" height="100%">
-            {
-              NAVIGATION.map((item, index) => {
-                return (
-                  <Box
-                    onClick={() => nav(item.to)}
-                    key={index}
+        <Container
+          sx={{
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+            height: "100%",
+          }}
+        >
+          <Stack
+            flexDirection={"row"}
+            gap={"20px"}
+            alignItems="center"
+            height="100%"
+          >
+            {NAVIGATION.map((item, index) => {
+              return (
+                <Box
+                  onClick={() => nav(item.to)}
+                  key={index}
+                  sx={{
+                    position: "relative",
+                    transition: "all ease 0.2s",
+                    "&:hover .submenu": {
+                      transition: "all ease 0.2s",
+                      display: "block",
+                    },
+                  }}
+                >
+                  <Stack
+                    marginTop={"10px"}
+                    paddingBottom={"10px"}
+                    flexDirection={"row"}
+                    alignItems={"center"}
+                    variant="body1"
+                    color="#fff"
                     sx={{
                       position: "relative",
-                      transition: "all ease 0.2s",
-                      "&:hover .submenu": {
-                        transition: "all ease 0.2s",
-                        display: "block",
-                      }
-                    }}
-                  >
-                    <Stack marginTop={"10px"} paddingBottom={"10px"} flexDirection={"row"} alignItems={"center"} variant="body1" color="#fff" fontSize="16px" fontWeight={500}
-                    sx={{
-                      position:'relative',
-                      display:'line-block',
-                      cursor:'pointer',
+                      display: "line-block",
+                      cursor: "pointer",
                       "&::after": {
                         content: '""',
                         position: "absolute",
@@ -100,134 +126,165 @@ export default function Header() {
                         width: "100%",
                       },
                     }}
+                  >
+                    <Typography
+                      sx={{
+                        fontSize: {xs:"14px", sm: "16px" },
+                        fontWeight: 500,
+                      }}
                     >
                       {item.name}
-                      {item.icon && <item.icon sx={{ color: "#fff", marginLeft: "5px", "&:hover":{color:'yellow'} }} />}
-                    </Stack>
-                    {item.children && (
-                      <Stack
-                        className="submenu"
+                    </Typography>
+                    {item.icon && (
+                      <item.icon
                         sx={{
-                          position: "absolute",
-                          top: "100%",
-                          left: 0,
-                          padding:'10px 0',
-                          backgroundColor: "#fff",
-                          color: "#000",
-                          display: "none",
-                          minWidth: "200px",
-                          boxShadow: "0 4px 8px rgba(0,0,0,0.2)",
-                          zIndex: 10,
-                          transition: "all ease 0.2s",
+                          color: "#fff",
+                          marginLeft: "5px",
+                          "&:hover": { color: "yellow" },
                         }}
-                      >
-                        {item.children.map((child, idx) => (
-                          <Box
-                            key={idx}
-                            sx={{
-                              padding: "10px 15px",
-                              transition: "all ease 0.2s",
-                              "&:hover": {
-                                backgroundColor: "#dfdbdb",
-                              }
-                            }}
-                          >
-                            {child.name}
-                          </Box>
-                        ))}
-                      </Stack>
+                      />
                     )}
-                  </Box>
-                )
-              })
-            }          
+                  </Stack>
+                  {item.children && (
+                    <Stack
+                      className="submenu"
+                      sx={{
+                        position: "absolute",
+                        top: "100%",
+                        left: 0,
+                        padding: "10px 0",
+                        backgroundColor: "#fff",
+                        color: "#000",
+                        display: "none",
+                        minWidth: "200px",
+                        boxShadow: "0 4px 8px rgba(0,0,0,0.2)",
+                        zIndex: 10,
+                        transition: "all ease 0.2s",
+                      }}
+                    >
+                      {item.children.map((child, idx) => (
+                        <Box
+                          key={idx}
+                          sx={{
+                            padding: "10px 15px",
+                            transition: "all ease 0.2s",
+                            "&:hover": {
+                              backgroundColor: "#dfdbdb",
+                            },
+                          }}
+                        >
+                          {child.name}
+                        </Box>
+                      ))}
+                    </Stack>
+                  )}
+                </Box>
+              );
+            })}
           </Stack>
           <Box>
-          <FormControl sx={{ mx: 1, minWidth: 100, 
-            "& .MuiSelect-outlined": {
-              padding:"0px",
-              border:"none",
-            },
-            "& .MuiOutlinedInput-notchedOutline": {
-              border: "none", 
-              display: "none",
-            },
-            "& .MuiSelect-icon": {
-              display: "none",
-            }
-          }}>
-            <Select
-              value={language}
-              onChange={handleChange}
-              displayEmpty
-              renderValue={selected => {
-                if (selected === 'English') {
-                  return <EnglishIcon/>
-                }
-                if (selected === 'Vietnamese') {
-                  return <VietnamIcon/>
-                }
-              }}
-              inputProps={{ 'aria-label': 'Without label' }}
+            <FormControl
               sx={{
-                padding: "0px",
-                border: "none",
-                "& .MuiSelect-select": {
-                  padding: "0px !important",
-                  display: "flex",
-                  justifyContent: "center",
-                  textAlign: "center",                  
-                  border: "none !important",
-                }
-              }}
-            >              
-              <MenuItem value={'English'} sx={{justifyContent:'center'}}>
-                <EnglishIcon/>
-              </MenuItem>
-              <MenuItem value={'Vietnamese'} sx={{justifyContent:'center'}}>
-                <VietnamIcon/>
-              </MenuItem>              
-            </Select>            
-          </FormControl>
-          </Box>
-          <Box>
-            <form style={{display:'flex',position:'relative',transition:'all ease 0.2s'}}>
-            <Box
-              component="input"
-              placeholder="Nhập từ khóa tìm kiếm"
-              sx={{
-                backgroundColor: 'hsl(0deg 0% 100% / 20%)',
-                border: 'none',
-                fontSize: '13px',
-                color: 'white',
-                width: '100%',
-                borderRadius:'4px',
-                minWidth: '230px',
-                marginRight: 0,
-                padding: '6px 30px 6px 12px',
-                outline: 'none',
-                '&::placeholder': {
-                  color: 'rgba(255,255,255,0.7)',
-                  fontStyle: 'italic',
-                  fontSize: '13px',
+                mx: 1,
+                minWidth: 100,
+                "& .MuiSelect-outlined": {
+                  padding: "0px",
+                  border: "none",
+                },
+                "& .MuiOutlinedInput-notchedOutline": {
+                  border: "none",
+                  display: "none",
+                },
+                "& .MuiSelect-icon": {
+                  display: "none",
                 },
               }}
-            />
-              <button style={{
-                position: 'absolute',
-                right: "10px",
-                top: '50%',
-                transform: 'translateY(-50%)',
-                backgroundColor: 'transparent',
-                border: 'none',
-                color: 'white',
-                cursor: 'pointer',
-                lineHeight:'8px'
-              }}>
-                <SearchIcon sx={{
-                  width: '20px',
-                  height: '20px',
-                }}/>
+            >
+              <Select
+                value={language}
+                onChange={handleChange}
+                displayEmpty
+                renderValue={(selected) => {
+                  if (selected === "English") {
+                    return <EnglishIcon />;
+                  }
+                  if (selected === "Vietnamese") {
+                    return <VietnamIcon />;
+                  }
+                }}
+                inputProps={{ "aria-label": "Without label" }}
+                sx={{
+                  padding: "0px",
+                  border: "none",
+                  "& .MuiSelect-select": {
+                    padding: "0px !important",
+                    display: "flex",
+                    justifyContent: "center",
+                    textAlign: "center",
+                    border: "none !important",
+                  },
+                }}
+              >
+                <MenuItem value={"English"} sx={{ justifyContent: "center" }}>
+                  <EnglishIcon />
+                </MenuItem>
+                <MenuItem
+                  value={"Vietnamese"}
+                  sx={{ justifyContent: "center" }}
+                >
+                  <VietnamIcon />
+                </MenuItem>
+              </Select>
+            </FormControl>
+          </Box>
+          <Box>
+            <form
+              style={{
+                display: "flex",
+                position: "relative",
+                transition: "all ease 0.2s",
+              }}
+            >
+              <Box
+                component="input"
+                placeholder="Nhập từ khóa tìm kiếm"
+                sx={{
+                  backgroundColor: "hsl(0deg 0% 100% / 20%)",
+                  border: "none",
+                  fontSize: "13px",
+                  color: "white",
+                  width: "100%",
+                  borderRadius: "4px",
+                  minWidth: "230px",
+                  marginRight: 0,
+                  padding: "6px 30px 6px 12px",
+                  outline: "none",
+                  "&::placeholder": {
+                    color: "rgba(255,255,255,0.7)",
+                    fontStyle: "italic",
+                    fontSize: "13px",
+                  },
+                }}
+              />
+              <button
+                style={{
+                  position: "absolute",
+                  right: "10px",
+                  top: "50%",
+                  transform: "translateY(-50%)",
+                  backgroundColor: "transparent",
+                  border: "none",
+                  color: "white",
+                  cursor: "pointer",
+                  lineHeight: "8px",
+                }}
+              >
+                <SearchIcon
+                  sx={{
+                    width: "20px",
+                    height: "20px",
+                  }}
+                />
               </button>
             </form>
           </Box>
